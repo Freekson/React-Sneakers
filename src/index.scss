@@ -1,8 +1,10 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
 body {
   margin: 0;
   background-color: #e7f6ff;
-  font-family: "Inter", sans-serif;
-  font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
@@ -16,10 +18,12 @@ body {
 
 header {
   border-bottom: 1px solid #f4f4f4;
+
   p,
   h3 {
     margin: 0;
   }
+
   img,
   svg {
     margin: 0 10px;
@@ -38,6 +42,7 @@ header {
   width: 22%;
   border-radius: 40px;
   margin-right: 3%;
+  transition: all 0.2s ease-in-out;
 
   &:first-child {
     margin-left: 2%;
@@ -58,17 +63,156 @@ header {
     font-size: 14px;
   }
 
-  img {
+  .sneaker-img {
     width: 100%;
+  }
+
+  img[src="/img/btn-plus.svg"] {
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: 0px 14px 30px 0px #0000000d;
+    transform: translateY(-5px);
   }
 }
 
-.button {
-  background: #fff;
-  border: 1px solid #f2f2f2;
-  box-sizing: border-box;
-  border-radius: 8px;
-  height: 32px;
-  width: 32px;
+.search-block {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    max-width: 200px;
+  }
+}
+
+.favorite {
+  position: absolute;
   cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+
+  h2 {
+    margin: 0;
+    margin-bottom: 30px;
+
+    img {
+      opacity: 0.5;
+      transition: all 0.15s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.items {
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+.cart-item {
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px 0;
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  strong {
+    font-size: 14px;
+  }
+
+  .remove-btn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.total-block {
+  li {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+
+  div {
+    flex: 1;
+    height: 1px;
+    border-bottom: 1px dashed #dfdfdf;
+    position: relative;
+    top: -4px;
+    margin: 0 10px;
+  }
+  .greenBtn {
+    position: relative;
+
+    &:hover {
+      svg {
+        transform: translateX(5px);
+      }
+    }
+
+    svg {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: all 0.15s ease-in-out;
+    }
+  }
+}
+
+.greenBtn {
+  width: 100%;
+  background: #9dd558;
+  border-radius: 18px;
+  height: 55px;
+  border: 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: lighten(#9dd558, 5%);
+  }
+
+  &:active {
+    background: darken(#9dd558, 5%);
+  }
 }
