@@ -1,0 +1,53 @@
+.card {
+  border: 1px solid #f3f3f3;
+  padding: 30px;
+  width: 22%;
+  border-radius: 40px;
+  margin-right: 3%;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  span {
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-size: 13px;
+  }
+
+  strong {
+    font-size: 14px;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .sneaker_img {
+    width: 90%;
+  }
+
+  img[src="/img/btn-plus.svg"] {
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: 0px 14px 30px 0px #0000000d;
+    transform: translateY(-5px);
+  }
+
+  .bottom_block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .favorite {
+    position: absolute;
+    cursor: pointer;
+    left: 30px;
+  }
+}

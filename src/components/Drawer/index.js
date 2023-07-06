@@ -1,17 +1,20 @@
+import styles from "./Drawer.module.scss";
+
 function Drawer() {
   return (
-    <div className="overlay" style={{ display: "none" }}>
-      <div className="drawer">
+    <div className={styles.overlay} style={{ display: "none" }}>
+      ={" "}
+      <div className={styles.drawer}>
         <h2 className="d-flex justify-between">
           Cart
           <img
-            className="remove-btn mr-20 cu-p"
+            className={styles.remove_btn}
             src="img/btn-remove.svg"
             alt="btn remove"
           />
         </h2>
-        <div className="items">
-          <div className="cart-item d-flex align-center mb-20">
+        <div className={styles.items}>
+          <div className={styles.cart_item}>
             <img
               className="mr-20 ml-20"
               width="25%"
@@ -23,12 +26,12 @@ function Drawer() {
               <strong>1000 $</strong>
             </div>
             <img
-              className="remove-btn mr-20"
+              className={styles.remove_btn}
               src="img/btn-remove.svg"
               alt="btn remove"
             />
           </div>
-          <div className="cart-item d-flex align-center mb-20">
+          <div className={styles.cart_item}>
             <img
               className="mr-20 ml-20"
               width="25%"
@@ -40,13 +43,13 @@ function Drawer() {
               <strong>1000 $</strong>
             </div>
             <img
-              className="remove-btn mr-20"
+              className={styles.remove_btn}
               src="img/btn-remove.svg"
               alt="btn remove"
             />
           </div>
         </div>
-        <div className="total-block">
+        <div className={styles.total_block}>
           <ul className="mb-40">
             <li>
               <span>Total</span>
@@ -59,7 +62,7 @@ function Drawer() {
               <strong>100 $</strong>
             </li>
           </ul>
-          <button className="greenBtn">
+          <button className={styles.greenBtn}>
             Ordering
             <svg
               xmlns="http://www.w3.org/2000/svg"

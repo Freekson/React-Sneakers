@@ -2,6 +2,19 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 
+const arr = [
+  {
+    name: "Nike Air Max 270 Men's Running Shoes",
+    price: 1200,
+    imageUrl: "img/sneakers/sneaker-1.png",
+  },
+  {
+    name: "Nike Blazer Mid Suede Men's Sneakers",
+    price: 1000,
+    imageUrl: "img/sneakers/sneaker-2.png",
+  },
+];
+
 function App() {
   return (
     <div className="wrapper clear">
@@ -28,8 +41,17 @@ function App() {
             <input type="text" placeholder="Search..." />
           </div>
         </div>
-        <div className="d-flex">
-          <Card />
+        <div className="d-flex flex-wrap">
+          {arr.map((obj) => (
+            <Card
+              title={obj.name}
+              price={obj.price}
+              imageUrl={obj.imageUrl}
+              onClick={() => {
+                console.log("message");
+              }}
+            />
+          ))}
         </div>
       </div>
     </div>
