@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 
-function Header() {
+function Header(props) {
   return (
     <header className={styles.header}>
       <div className="d-flex align-center">
@@ -11,7 +11,7 @@ function Header() {
         </div>
       </div>
       <ul className="d-flex">
-        <li className="mr-30">
+        <li className="mr-30 cu-p" onClick={props.onClickCart}>
           <svg
             width="20"
             height="20"

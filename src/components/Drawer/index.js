@@ -1,9 +1,8 @@
 import styles from "./Drawer.module.scss";
 
-function Drawer() {
+function Drawer({ onClose, items, onClickRemove }) {
   return (
-    <div className={styles.overlay} style={{ display: "none" }}>
-      ={" "}
+    <div className={styles.overlay}>
       <div className={styles.drawer}>
         <h2 className="d-flex justify-between">
           Cart
@@ -11,43 +10,29 @@ function Drawer() {
             className={styles.remove_btn}
             src="img/btn-remove.svg"
             alt="btn remove"
+            onClick={onClose}
           />
         </h2>
         <div className={styles.items}>
-          <div className={styles.cart_item}>
-            <img
-              className="mr-20 ml-20"
-              width="25%"
-              src="/img/sneakers/sneaker-1.png"
-              alt="sneaker"
-            />
-            <div className="mr-20">
-              <p className="mb-5">Nike Blazer Mid Suede Men's Sneakers</p>
-              <strong>1000 $</strong>
+          {items.map((item, index) => (
+            <div className={styles.cart_item} key={index}>
+              <img
+                className="mr-20 ml-20"
+                width="25%"
+                src={item.imageUrl}
+                alt="sneaker"
+              />
+              <div className="mr-20">
+                <p className="mb-5">{item.name}</p>
+                <strong>{item.price} $</strong>
+              </div>
+              <img
+                className={styles.remove_btn}
+                src="img/btn-remove.svg"
+                alt="btn remove"
+              />
             </div>
-            <img
-              className={styles.remove_btn}
-              src="img/btn-remove.svg"
-              alt="btn remove"
-            />
-          </div>
-          <div className={styles.cart_item}>
-            <img
-              className="mr-20 ml-20"
-              width="25%"
-              src="/img/sneakers/sneaker-2.png"
-              alt="sneaker"
-            />
-            <div className="mr-20">
-              <p className="mb-5">Nike Air Max 270 Men's Running Shoes</p>
-              <strong>1000 $</strong>
-            </div>
-            <img
-              className={styles.remove_btn}
-              src="img/btn-remove.svg"
-              alt="btn remove"
-            />
-          </div>
+          ))}
         </div>
         <div className={styles.total_block}>
           <ul className="mb-40">

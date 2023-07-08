@@ -30,7 +30,7 @@
     width: 90%;
   }
 
-  img[src="/img/btn-plus.svg"] {
+  img[src^="/img/btn"] {
     cursor: pointer;
   }
 
