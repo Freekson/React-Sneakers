@@ -26,11 +26,17 @@ body {
   border: 1px solid #f3f3f3;
   border-radius: 10px;
   padding: 0 15px;
+  width: 25%;
+  position: relative;
 
   input {
     border: 0;
     padding: 13px;
     font-size: 16px;
     max-width: 200px;
+  }
+  img[src="img/btn-remove.svg"] {
+    position: absolute;
+    right: 10px;
   }
 }

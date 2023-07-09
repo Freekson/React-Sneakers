@@ -1,0 +1,97 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Men's Nike Blazer Mid Suede Sneakers",
+      "price": 120,
+      "imageUrl": "img/sneakers/sneaker-1.png"
+    },
+    {
+      "id": 2,
+      "name": "Nike Air Max 270 Men's Running Shoes",
+      "price": 100,
+      "imageUrl": "img/sneakers/sneaker-2.png"
+    },
+    {
+      "id": 3,
+      "name": "Men's Nike Blazer Mid Suede Sneakers",
+      "price": 125,
+      "imageUrl": "img/sneakers/sneaker-3.png"
+    },
+    {
+      "id": 4,
+      "name": "Puma X Aka Boku Future Rider Sneakers",
+      "price": 145,
+      "imageUrl": "img/sneakers/sneaker-4.png"
+    },
+    {
+      "id": 5,
+      "name": "Men's Under Armour Curry 8 Sneakers",
+      "price": 195,
+      "imageUrl": "img/sneakers/sneaker-5.png"
+    },
+    {
+      "id": 6,
+      "name": "Men's Nike Kyrie 7 Sneakers",
+      "price": 155,
+      "imageUrl": "img/sneakers/sneaker-6.png"
+    },
+    {
+      "id": 7,
+      "name": "Men's Jordan Air Jordan 11 Sneakers",
+      "price": 180,
+      "imageUrl": "img/sneakers/sneaker-7.png"
+    },
+    {
+      "id": 8,
+      "name": "Men's Nike LeBron XVIII Sneakers",
+      "price": 175,
+      "imageUrl": "img/sneakers/sneaker-8.png"
+    },
+    {
+      "id": 9,
+      "name": "Men's Nike Lebron XVIII Low Sneakers",
+      "price": 199,
+      "imageUrl": "img/sneakers/sneaker-9.png"
+    },
+    {
+      "id": 10,
+      "name": "Puma X Aka Boku Future Rider Sneakers",
+      "price": 210,
+      "imageUrl": "img/sneakers/sneaker-10.png"
+    },
+    {
+      "id": 11,
+      "name": "Men's Nike Blazer Mid Suede Sneakers",
+      "price": 120,
+      "imageUrl": "img/sneakers/sneaker-1.png"
+    },
+    {
+      "id": 12,
+      "name": "Men's Jordan Air Jordan 11 Sneakers",
+      "price": 180,
+      "imageUrl": "img/sneakers/sneaker-7.png"
+    }
+  ],
+  "cart": [
+    {
+      "title": "Men's Nike Kyrie 7 Sneakers",
+      "imageUrl": "img/sneakers/sneaker-6.png",
+      "price": 155,
+      "id": 1
+    },
+    {
+      "title": "Nike Air Max 270 Men's Running Shoes",
+      "imageUrl": "img/sneakers/sneaker-2.png",
+      "price": 100,
+      "id": 2
+    },
+    {
+      "title": "Nike Air Max 270 Men's Running Shoes",
+      "imageUrl": "img/sneakers/sneaker-2.png",
+      "price": 100,
+      "id": 3
+    }
+  ],
+  "favorite": []
+}

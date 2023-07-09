@@ -8,6 +8,17 @@
   background: #fff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #9dd558;
+    border-radius: 10px;
+  }
 
   h2 {
     margin: 0;
@@ -33,9 +44,9 @@
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
+
 .items {
   flex: 1;
-  overflow: auto;
   margin-bottom: 40px;
 }
 
@@ -121,4 +132,38 @@
   &:active {
     background: darken(#9dd558, 5%);
   }
+}
+
+.empty_cart,
+.order_successful {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  .greenBtn {
+    svg {
+      transform: rotateY(180deg);
+      margin-right: 10px;
+    }
+  }
+}
+
+.cart_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    margin-bottom: 20px;
+  }
+
+  p {
+    width: 70%;
+    text-align: center;
+    opacity: 0.4;
+  }
+}
+
+.order_successful {
+  display: none;
 }
