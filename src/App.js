@@ -6,39 +6,64 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 
+export const AppContext = React.createContext({});
+
 function App() {
   const [cartOpen, setCartOpen] = React.useState(false);
   const [items, setItems] = React.useState([]);
   const [favoriteItems, setFavoriteItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
-  const [searchValue, setSearchValue] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    axios.get("http://localhost:3001/items").then((res) => setItems(res.data));
-    axios
-      .get("http://localhost:3001/cart")
-      .then((res) => setCartItems(res.data));
-    axios
-      .get("http://localhost:3001/favorite")
-      .then((res) => setFavoriteItems(res.data));
+    async function fetchData() {
+      const cartResponse = await axios.get("http://localhost:3001/cart");
+      const favoriteResponse = await axios.get(
+        "http://localhost:3001/favorite"
+      );
+      const itemsResponse = await axios.get("http://localhost:3001/items");
+
+      setIsLoading(false);
+
+      setCartItems(cartResponse.data);
+      setFavoriteItems(favoriteResponse.data);
+      setItems(itemsResponse.data);
+    }
+
+    fetchData();
   }, []);
 
   const onAddToCart = (obj) => {
-    axios
-      .post("http://localhost:3001/cart", obj)
-      .then((res) => setCartItems((prev) => [...prev, res.data]));
+    try {
+      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+        setCartItems((prev) =>
+          prev.filter((item) => Number(item.id) !== Number(obj.id))
+        );
+        axios.delete(`http://localhost:3001/cart/${obj.id}`);
+      } else {
+        axios
+          .post("http://localhost:3001/cart", obj)
+          .then((res) => setCartItems((prev) => [...prev, res.data]));
+      }
+    } catch (err) {
+      console.log(err);
+      alert("Failed to add to cart");
+    }
   };
 
   const onAddToFavotite = async (obj) => {
     try {
-      if (favoriteItems.find((favObj) => favObj.id === obj.id)) {
+      if (
+        favoriteItems.find((favObj) => Number(favObj.id) === Number(obj.id))
+      ) {
+        setFavoriteItems((prev) =>
+          prev.filter((item) => Number(item.id) !== Number(obj.id))
+        );
         axios.delete(`http://localhost:3001/favorite/${obj.id}`);
       } else {
-        const { data } = await axios.post(
-          "http://localhost:3001/favorite",
-          obj
-        );
-        setFavoriteItems((prev) => [...prev, data]);
+        axios
+          .post("http://localhost:3001/favorite", obj)
+          .then((res) => setFavoriteItems((prev) => [...prev, res.data]));
       }
     } catch (err) {
       alert("Failed to add to favorites");
@@ -46,57 +71,42 @@ function App() {
     }
   };
 
-  const onChangeInput = (event) => {
-    setSearchValue(event.target.value);
-  };
-
-  const onDeleteInput = () => {
-    setSearchValue("");
-  };
-
   const onRemoveItem = (id) => {
     axios.delete(`http://localhost:3001/cart/${id}`);
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const isItemAdded = (id) => {
+    return cartItems.some((obj) => Number(obj.id) === Number(id));
+  };
+
+  const isItemLiked = (id) => {
+    return favoriteItems.some((obj) => Number(obj.id) === Number(id));
+  };
+
   return (
-    <div className="wrapper clear">
-      {cartOpen && (
-        <Drawer
-          onClose={() => setCartOpen(false)}
-          items={cartItems}
-          onRemove={onRemoveItem}
-        />
-      )}
-      <Header onClickCart={() => setCartOpen(true)} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              items={items}
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-              onChangeInput={onChangeInput}
-              onAddToFavotite={onAddToFavotite}
-              onAddToCart={onAddToCart}
-              onDeleteInput={onDeleteInput}
-            />
-          }
-          exact
-        />
-        <Route
-          path="/favorites"
-          element={
-            <Favorites
-              items={favoriteItems}
-              onAddToFavotite={onAddToFavotite}
-              onAddToCart={onAddToCart}
-            />
-          }
-        />
-      </Routes>
-    </div>
+    <AppContext.Provider
+      value={{
+        items,
+        cartItems,
+        favoriteItems,
+        isItemAdded,
+        isItemLiked,
+        onAddToFavotite,
+        onAddToCart,
+      }}
+    >
+      <div className="wrapper clear">
+        {cartOpen && (
+          <Drawer onClose={() => setCartOpen(false)} onRemove={onRemoveItem} />
+        )}
+        <Header onClickCart={() => setCartOpen(true)} />
+        <Routes>
+          <Route path="/" element={<Home isLoading={isLoading} />} exact />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </div>
+    </AppContext.Provider>
   );
 }
 

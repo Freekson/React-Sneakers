@@ -1,14 +1,42 @@
 import React from "react";
 import Card from "../components/Card";
+import { AppContext } from "../App";
 
-function Home({
-  items,
-  searchValue,
-  onChangeInput,
-  onAddToFavotite,
-  onAddToCart,
-  onDeleteInput,
-}) {
+function Home({ isLoading }) {
+  const { items, onAddToCart, onAddToFavotite } = React.useContext(AppContext);
+
+  const [searchValue, setSearchValue] = React.useState("");
+
+  const renderItems = () => {
+    return isLoading
+      ? [...Array(10)].map((item, index) => <Card key={index} loading />)
+      : items
+          .filter((item) =>
+            item.name.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .map((item, index) => (
+            <Card
+              key={index}
+              onFavorite={(obj) => {
+                onAddToFavotite(obj);
+              }}
+              onPlus={(obj) => {
+                onAddToCart(obj);
+              }}
+              loading={isLoading}
+              {...item}
+            />
+          ));
+  };
+
+  const onChangeInput = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const onDeleteInput = () => {
+    setSearchValue("");
+  };
+
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
@@ -46,24 +74,7 @@ function Home({
           )}
         </div>
       </div>
-      <div className="d-flex flex-wrap">
-        {items
-          .filter((item) =>
-            item.name.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((item, index) => (
-            <Card
-              key={index}
-              onFavorite={(obj) => {
-                onAddToFavotite(obj);
-              }}
-              onPlus={(obj) => {
-                onAddToCart(obj);
-              }}
-              {...item}
-            />
-          ))}
-      </div>
+      <div className="d-flex flex-wrap">{renderItems()}</div>
     </div>
   );
 }

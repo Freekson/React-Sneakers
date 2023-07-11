@@ -75,23 +75,36 @@
   ],
   "cart": [
     {
-      "title": "Men's Nike Kyrie 7 Sneakers",
-      "imageUrl": "img/sneakers/sneaker-6.png",
-      "price": 155,
-      "id": 1
+      "id": 2,
+      "name": "Nike Air Max 270 Men's Running Shoes",
+      "imageUrl": "img/sneakers/sneaker-2.png",
+      "price": 100
     },
     {
-      "title": "Nike Air Max 270 Men's Running Shoes",
-      "imageUrl": "img/sneakers/sneaker-2.png",
-      "price": 100,
-      "id": 2
+      "id": 7,
+      "name": "Men's Jordan Air Jordan 11 Sneakers",
+      "imageUrl": "img/sneakers/sneaker-7.png",
+      "price": 180
     },
     {
-      "title": "Nike Air Max 270 Men's Running Shoes",
-      "imageUrl": "img/sneakers/sneaker-2.png",
-      "price": 100,
-      "id": 3
+      "id": 8,
+      "name": "Men's Nike LeBron XVIII Sneakers",
+      "imageUrl": "img/sneakers/sneaker-8.png",
+      "price": 175
     }
   ],
-  "favorite": []
+  "favorite": [
+    {
+      "id": 2,
+      "name": "Nike Air Max 270 Men's Running Shoes",
+      "imageUrl": "img/sneakers/sneaker-2.png",
+      "price": 100
+    },
+    {
+      "id": 8,
+      "name": "Men's Nike LeBron XVIII Sneakers",
+      "imageUrl": "img/sneakers/sneaker-8.png",
+      "price": 175
+    }
+  ]
 }
