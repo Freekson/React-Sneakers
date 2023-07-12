@@ -1,9 +1,16 @@
 import React from "react";
 import { AppContext } from "../../App";
 import styles from "./Drawer.module.scss";
+import Info from "../Info";
 
 function Drawer({ onClose, onRemove }) {
-  const { cartItems } = React.useContext(AppContext);
+  const { cartItems, setCartItems } = React.useContext(AppContext);
+  const [isOrderComplete, setIsOrderComplete] = React.useState(false);
+
+  const onClickOrder = () => {
+    setIsOrderComplete(true);
+    setCartItems([]);
+  };
 
   return (
     <div className={styles.overlay}>
@@ -56,7 +63,7 @@ function Drawer({ onClose, onRemove }) {
                   <strong>100 $</strong>
                 </li>
               </ul>
-              <button className={styles.greenBtn}>
+              <button className={styles.greenBtn} onClick={onClickOrder}>
                 Ordering
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,71 +91,18 @@ function Drawer({ onClose, onRemove }) {
             </div>
           </div>
         ) : (
-          <div className={styles.empty_cart}>
-            <div className={styles.cart_image}>
-              <img src="/img/empty-cart.png" alt="empty cart" />
-              <strong>Cart empty</strong>
-              <p>Add at least one pair of sneakers to place an order.</p>
-            </div>
-            <button className={styles.greenBtn} onClick={onClose}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="14"
-                viewBox="0 0 16 14"
-                fill="none"
-              >
-                <path
-                  d="M1 7H14.7143"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8.71436 1L14.7144 7L8.71436 13"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              Go back
-            </button>
-          </div>
+          <Info
+            title={isOrderComplete ? "Order is processed!" : "Cart empty"}
+            description={
+              isOrderComplete
+                ? "Your order #18 will be delivered to courier soon"
+                : "Add at least one pair of sneakers to place an order."
+            }
+            imageUrl={
+              isOrderComplete ? "successful-order.png" : "empty-cart.png"
+            }
+          />
         )}
-        <div className={styles.order_successful}>
-          <div className={styles.cart_image}>
-            <img src="/img/successful-order.png" alt="empty cart" />
-            <strong>Order is processed!</strong>
-            <p>Your order #18 will be delivered to courier soon</p>
-          </div>
-          <button className={styles.greenBtn} onClick={onClose}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="14"
-              viewBox="0 0 16 14"
-              fill="none"
-            >
-              <path
-                d="M1 7H14.7143"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M8.71436 1L14.7144 7L8.71436 13"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Go back
-          </button>
-        </div>
       </div>
     </div>
   );

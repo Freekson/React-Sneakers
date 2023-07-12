@@ -133,37 +133,3 @@
     background: darken(#9dd558, 5%);
   }
 }
-
-.empty_cart,
-.order_successful {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  .greenBtn {
-    svg {
-      transform: rotateY(180deg);
-      margin-right: 10px;
-    }
-  }
-}
-
-.cart_image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  img {
-    margin-bottom: 20px;
-  }
-
-  p {
-    width: 70%;
-    text-align: center;
-    opacity: 0.4;
-  }
-}
-
-.order_successful {
-  display: none;
-}
