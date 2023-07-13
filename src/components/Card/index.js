@@ -60,13 +60,15 @@ function Card({
               <span>Price:</span>
               <strong>{price} $</strong>
             </div>
-            <img
-              src={
-                isItemAdded(id) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"
-              }
-              alt="btn plus"
-              onClick={onClickPlus}
-            />
+            {onPlus && (
+              <img
+                src={
+                  isItemAdded(id) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"
+                }
+                alt="btn plus"
+                onClick={onClickPlus}
+              />
+            )}
           </div>
         </>
       )}

@@ -2,7 +2,7 @@ import React from "react";
 import { AppContext } from "../../App";
 import styles from "./Info.module.scss";
 
-const Info = ({ title, discription, imageUrl }) => {
+const Info = ({ title, description, imageUrl }) => {
   const { setCartOpen } = React.useContext(AppContext);
 
   return (
@@ -10,7 +10,7 @@ const Info = ({ title, discription, imageUrl }) => {
       <div className={styles.cart_image}>
         <img src={`/img/${imageUrl}`} alt="cart img" />
         <strong>{title}</strong>
-        <p>{discription}</p>
+        <p>{description}</p>
       </div>
       <button className={styles.greenBtn} onClick={() => setCartOpen(false)}>
         <svg

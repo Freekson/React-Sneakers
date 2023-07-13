@@ -73,39 +73,72 @@
       "imageUrl": "img/sneakers/sneaker-7.png"
     }
   ],
-  "cart": [
-    {
-      "id": 7,
-      "name": "Men's Jordan Air Jordan 11 Sneakers",
-      "imageUrl": "img/sneakers/sneaker-7.png",
-      "price": 180
-    },
-    {
-      "id": 3,
-      "name": "Men's Nike Blazer Mid Suede Sneakers",
-      "imageUrl": "img/sneakers/sneaker-3.png",
-      "price": 125
-    },
-    {
-      "id": 2,
-      "name": "Nike Air Max 270 Men's Running Shoes",
-      "imageUrl": "img/sneakers/sneaker-2.png",
-      "price": 100
-    }
-  ],
+  "cart": [],
   "favorite": [
     {
-      "id": 2,
-      "name": "Nike Air Max 270 Men's Running Shoes",
-      "imageUrl": "img/sneakers/sneaker-2.png",
-      "price": 100
-    },
-    {
-      "id": 8,
-      "name": "Men's Nike LeBron XVIII Sneakers",
-      "imageUrl": "img/sneakers/sneaker-8.png",
-      "price": 175
+      "id": 5,
+      "name": "Men's Under Armour Curry 8 Sneakers",
+      "imageUrl": "img/sneakers/sneaker-5.png",
+      "price": 195
     }
   ],
-  "order": []
+  "orders": [
+    {
+      "items": [
+        {
+          "id": 10,
+          "name": "Puma X Aka Boku Future Rider Sneakers",
+          "imageUrl": "img/sneakers/sneaker-10.png",
+          "price": 210
+        }
+      ],
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "id": 11,
+          "name": "Men's Nike Blazer Mid Suede Sneakers",
+          "imageUrl": "img/sneakers/sneaker-1.png",
+          "price": 120
+        },
+        {
+          "id": 6,
+          "name": "Men's Nike Kyrie 7 Sneakers",
+          "imageUrl": "img/sneakers/sneaker-6.png",
+          "price": 155
+        },
+        {
+          "id": 9,
+          "name": "Men's Nike Lebron XVIII Low Sneakers",
+          "imageUrl": "img/sneakers/sneaker-9.png",
+          "price": 199
+        }
+      ],
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "id": 10,
+          "name": "Puma X Aka Boku Future Rider Sneakers",
+          "imageUrl": "img/sneakers/sneaker-10.png",
+          "price": 210
+        },
+        {
+          "id": 7,
+          "name": "Men's Jordan Air Jordan 11 Sneakers",
+          "imageUrl": "img/sneakers/sneaker-7.png",
+          "price": 180
+        },
+        {
+          "id": 4,
+          "name": "Puma X Aka Boku Future Rider Sneakers",
+          "imageUrl": "img/sneakers/sneaker-4.png",
+          "price": 145
+        }
+      ],
+      "id": 3
+    }
+  ]
 }

@@ -5,6 +5,7 @@ import Drawer from "./components/Drawer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import Orders from "./pages/Orders";
 
 export const AppContext = React.createContext({});
 
@@ -15,19 +16,26 @@ function App() {
   const [cartItems, setCartItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+
   React.useEffect(() => {
     async function fetchData() {
-      const cartResponse = await axios.get("http://localhost:3001/cart");
-      const favoriteResponse = await axios.get(
-        "http://localhost:3001/favorite"
-      );
-      const itemsResponse = await axios.get("http://localhost:3001/items");
+      try {
+        const [cartResponse, favoriteResponse, itemsResponse] =
+          await Promise.all([
+            axios.get("http://localhost:3001/cart"),
+            axios.get("http://localhost:3001/favorite"),
+            axios.get("http://localhost:3001/items"),
+          ]);
 
-      setIsLoading(false);
-
-      setCartItems(cartResponse.data);
-      setFavoriteItems(favoriteResponse.data);
-      setItems(itemsResponse.data);
+        setIsLoading(false);
+        setCartItems(cartResponse.data);
+        setFavoriteItems(favoriteResponse.data);
+        setItems(itemsResponse.data);
+      } catch (err) {
+        alert("Error while data loading");
+        console.log(err);
+      }
     }
 
     fetchData();
@@ -72,8 +80,13 @@ function App() {
   };
 
   const onRemoveItem = (id) => {
-    axios.delete(`http://localhost:3001/cart/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    try {
+      axios.delete(`http://localhost:3001/cart/${id}`);
+      setCartItems((prev) => prev.filter((item) => item.id !== id));
+    } catch (err) {
+      alert("Failed while removing cart item");
+      console.log(err);
+    }
   };
 
   const isItemAdded = (id) => {
@@ -90,6 +103,7 @@ function App() {
         items,
         cartItems,
         favoriteItems,
+        totalPrice,
         isItemAdded,
         isItemLiked,
         onAddToFavotite,
@@ -99,13 +113,16 @@ function App() {
       }}
     >
       <div className="wrapper clear">
-        {cartOpen && (
-          <Drawer onClose={() => setCartOpen(false)} onRemove={onRemoveItem} />
-        )}
+        <Drawer
+          onClose={() => setCartOpen(false)}
+          onRemove={onRemoveItem}
+          opened={cartOpen}
+        />
         <Header onClickCart={() => setCartOpen(true)} />
         <Routes>
           <Route path="/" element={<Home isLoading={isLoading} />} exact />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>
