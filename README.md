@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-## Available Scripts
+<h3 align="center">React sneakers shop</h3>
 
-In the project directory, you can run:
+  <p align="center">
+    <a href="https://github.com/Freekson/React-Sneakers/issues">Report Bug</a>
+  </p>
+</div>
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>  
+    <li><a href="#preview">Preview</a></li> 
+    <li><a href="#instalation">Installation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- ABOUT THE PROJECT -->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# About The Project
 
-### `npm test`
+### Welcome to React Sneakers!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React Sneakers is a small website built with React, showcasing a wide range of trendy sneakers for sneaker enthusiasts. The website utilizes various React hooks to deliver a seamless and interactive user experience.
 
-### `npm run build`
+#### Main features include:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Favorites:** Users can easily add their favorite sneakers to their personal favorites list. This allows them to quickly access and browse through their preferred sneakers without any hassle.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Shopping Cart:** React Sneakers offers a convenient shopping cart functionality. Users can add sneakers to their cart, view the contents, and manage quantities. This ensures a smooth purchasing process and enables users to keep track of their selected items.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Order Creation:** Once users are satisfied with their selection, they can proceed to create an order. React Sneakers provides a straightforward order creation process
 
-### `npm run eject`
+**Order History:** Users have access to a dedicated section where they can view their order history. This feature allows them to keep track of their past purchases and reference details such as items ordered
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Preview
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Some gifs may take a long time to load, if you want to see them wait a bit._
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Main page**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![main page](readme-source/chrome_NGm5mXZ3t6.png)
 
-## Learn More
+**Site preview**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![project preview](readme-source/chrome_FxOhYn6jV7.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Site functional preview**
 
-### Code Splitting
+![functional preview](readme-source/chrome_kBDg14Hr5U.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<div id="instalation"></div>
 
-### Analyzing the Bundle Size
+<!-- GETTING STARTED -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Installation
 
-### Making a Progressive Web App
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Freekson/React-Sneakers.git
+   ```
+2. Go to React-Sneakers folder
+   ```
+   cd React-Sneakers
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Run server command
+   ```sh
+   npm run dev
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+See the [open issues](https://github.com/Freekson/React-Sneakers/issues) for a full list of proposed features (and known issues).
+Check the [releases](https://github.com/Freekson/React-Sneakers/releases) to see completed items
 
-### Advanced Configuration
+<!-- CONTACT -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Contact
 
-### Deployment
+Yehor Dreval
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [LinkediIn](https://www.linkedin.com/in/yehor-dreval-1634b4207/)
+- [Telegram](https://t.me/freekson)
+- [Instagram](https://www.instagram.com/freeksons)
 
-### `npm run build` fails to minify
+Project Link: [React Sneakers](https://github.com/Freekson/React-Sneakers)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">Back to top</a>)</p>
