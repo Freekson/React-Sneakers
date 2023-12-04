@@ -7,11 +7,13 @@ const Info = ({ title, description, imageUrl }) => {
 
   return (
     <div className={styles.empty_cart}>
-      <div className={styles.cart_image}>
-        <img src={`/img/${imageUrl}`} alt="cart img" />
-        <strong>{title}</strong>
-        <p>{description}</p>
-      </div>
+      {imageUrl && (
+        <div className={styles.cart_image}>
+          <img src={`/img/${imageUrl}`} alt="cart img" />
+        </div>
+      )}
+      <strong>{title}</strong>
+      <p>{description}</p>
       <button className={styles.greenBtn} onClick={() => setCartOpen(false)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -23,16 +25,16 @@ const Info = ({ title, description, imageUrl }) => {
           <path
             d="M1 7H14.7143"
             stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M8.71436 1L14.7144 7L8.71436 13"
             stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
         Go back

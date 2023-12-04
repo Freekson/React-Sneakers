@@ -28,7 +28,6 @@ function Home({ isLoading }) {
             />
           ));
   };
-
   const onChangeInput = (event) => {
     setSearchValue(event.target.value);
   };

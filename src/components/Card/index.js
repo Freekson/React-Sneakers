@@ -27,6 +27,7 @@ function Card({
     <div className={styles.card}>
       {loading ? (
         <ContentLoader
+          data-testid="loader"
           speed={2}
           width={200}
           height={265}
